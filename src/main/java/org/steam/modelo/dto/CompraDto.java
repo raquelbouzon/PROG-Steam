@@ -1,11 +1,11 @@
-package org.steam.modelo.entity;
+package org.steam.modelo.dto;
 
 import org.steam.modelo.enums.EstadoCompraEnum;
 import org.steam.modelo.enums.MetodoPagoEnum;
 
 import java.time.LocalDateTime;
 
-public class CompraEntity {
+public class CompraDto {
     private long id;
     private long usuarioId;
     private long juegoId;

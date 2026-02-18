@@ -15,7 +15,7 @@ public class UsuarioEntity {
     private LocalDate fechaNacimiento;
     private LocalDateTime fechaRegistro;
     private String avatar;
-    private Double saldoCartera;
+    private double saldoCartera;
     private EstadoCuentaEnum.Estado estado;
 
     public UsuarioEntity(long idBiblioteca, String nombreReal, String nombreUsuario, String email, String contrasenha, String pais, LocalDate fechaNacimiento, Double saldoCartera, EstadoCuentaEnum.Estado estado, String avatar, LocalDateTime fechaRegistro) {

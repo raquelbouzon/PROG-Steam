@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class UsuarioDto {
-    private Long id;
+    private long id;
     private String nombreUsuario;
     private String email;
     private String nombreReal;
@@ -14,7 +14,7 @@ public class UsuarioDto {
     private LocalDate fechaNacimiento;
     private LocalDateTime fechaRegistro;
     private String avatar;
-    private Double saldoCartera;
+    private double saldoCartera;
     private EstadoCuentaEnum.Estado estado;
 
     public UsuarioDto(EstadoCuentaEnum.Estado estado, Double saldoCartera, String avatar, LocalDateTime fechaRegistro, LocalDate fechaNacimiento, String pais, String email, String nombreReal, String nombreUsuario, Long id) {

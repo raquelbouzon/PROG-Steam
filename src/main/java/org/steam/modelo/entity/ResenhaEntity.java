@@ -4,7 +4,7 @@ import org.steam.modelo.enums.EstadoResenaEnum;
 
 import java.time.LocalDateTime;
 
-public class Resenha {
+public class ResenhaEntity {
     private long id;
     private long usuarioId;
     private long juegoId;
