@@ -11,7 +11,9 @@ public record UsuarioForm(
         String contrasenha,
         String nombreReal,
         String pais,
-        LocalDate fechaNacimiento) {
+        LocalDate fechaNacimiento,
+        String avatar)
+{
 
     public List<ErrorDto> validar() {
         List<ErrorDto> errores = new ArrayList<>();
@@ -20,23 +22,18 @@ public record UsuarioForm(
             errores.add(new ErrorDto("nombreUsuario", ErrorType.REQUERIDO));
         }
 
-        if (nombreUsuario.length() < 3 || nombreUsuario.length() > 20) {
+        if (nombreUsuario != null && (nombreUsuario.length() < 3 || nombreUsuario.length() > 20)) {
             errores.add(new ErrorDto("nombreUsuario", ErrorType.LONGITUD_INVALIDA));
-        }
-
-        if (!nombreUsuario.matches("^[A-Za-z][A-Za-z0-9_-]*$")) {
+        }else if (nombreUsuario != null && !nombreUsuario.matches("^[A-Za-z][A-Za-z0-9_-]*$")) {
             errores.add(new ErrorDto("nombreUsuario", ErrorType.FORMATO_INVALIDO));
         }
 
-        if (nombreUsuario.matches(" ")) {
-            errores.add(new ErrorDto("nombreUsuario", ErrorType.FORMATO_INVALIDO));
-        }
 
         if (email == null || email.isBlank()) {
             errores.add(new ErrorDto("email", ErrorType.REQUERIDO));
         }
 
-        if (email != null && !email.contains("@")) {
+        if (email != null && !email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
             errores.add(new ErrorDto("email", ErrorType.FORMATO_INVALIDO));
         }
 
@@ -46,10 +43,8 @@ public record UsuarioForm(
 
         if (contrasenha != null && contrasenha.length() < 8) {
             errores.add(new ErrorDto("contrasenha", ErrorType.LONGITUD_INVALIDA));
-        }
-
-        if (contrasenha != null && !contrasenha.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$")) {
-            errores.add(new ErrorDto("contrasena", ErrorType.FORMATO_INVALIDO));
+        }else if(contrasenha != null && !contrasenha.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$")) {
+            errores.add(new ErrorDto("contrasenha", ErrorType.FORMATO_INVALIDO));
         }
 
         if (nombreReal == null || nombreReal.isBlank()) {
@@ -63,6 +58,8 @@ public record UsuarioForm(
         if (pais == null || pais.isBlank()) {
             errores.add(new ErrorDto("pais", ErrorType.REQUERIDO));
         }
+        //falta paises válidos, ns como hacerlo
+
 
         if (fechaNacimiento == null) {
             errores.add(new ErrorDto("fechaNacimiento", ErrorType.REQUERIDO));
@@ -73,12 +70,12 @@ public record UsuarioForm(
         }
 
         if (fechaNacimiento != null && fechaNacimiento.isAfter(LocalDate.now())) {
-            errores.add(new ErrorDto("fechaNacimiento", ErrorType.FORMATO_INVALIDO));
+            errores.add(new ErrorDto("fechaNacimiento", ErrorType.VALOR_DEMASIADO_ALTO));
         }
 
-
-
-
+        if (avatar != null && avatar.length() > 100) {
+            errores.add(new ErrorDto("avatar", ErrorType.LONGITUD_INVALIDA));
+        }
 
 
         return errores;

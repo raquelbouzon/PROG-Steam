@@ -27,11 +27,11 @@ public class JuegoEntity {
         this.desarrollador = desarrollador;
         this.fechaLanzamiento = fechaLanzamiento;
         this.precioBase = precioBase;
-        this.descuentoActual = descuentoActual;
+        this.descuentoActual = 0;
         this.categoria = categoria;
         this.clasificacionEdad = clasificacionEdad;
         this.idiomas = idiomas;
-        this.estado = estado;
+        this.estado = EstadoJuegoEnum.Estado.DISPONIBLE;
     }
 
     public long getId() {

@@ -4,18 +4,19 @@ import org.steam.modelo.enums.ClasificacionEdadEnum;
 import org.steam.modelo.enums.EstadoJuegoEnum;
 
 import java.time.LocalDate;
+import java.util.List;
 
-public class JuegoDto {
-
-    private long id;
-    private String titulo;
-    private String descripcion;
-    private String desarrollador;
-    private LocalDate fechaLanzamiento;
-    private double precioBase;
-    private int descuentoActual;
-    private String categoria;
-    private ClasificacionEdadEnum.ClasificacionEdad clasificacionEdad;
-    private String[] idiomas;
-    private EstadoJuegoEnum.Estado estado;
+public record JuegoDto(
+        Long id,
+        String titulo,
+        String descripcion,
+        String desarrollador,
+        LocalDate fechaLanzamiento,
+        Double precioBase,
+        int descuentoActual,
+        String categoria,
+        ClasificacionEdadEnum.ClasificacionEdad clasificacionEdad,
+        String[] idiomasDisponibles,
+        EstadoJuegoEnum.Estado estado
+) {
 }

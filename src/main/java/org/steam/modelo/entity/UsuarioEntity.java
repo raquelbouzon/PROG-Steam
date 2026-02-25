@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class UsuarioEntity {
-    private long id;
+    private Long id;
     private String nombreUsuario;
     private String email;
     private String contrasenha;
@@ -18,7 +18,7 @@ public class UsuarioEntity {
     private double saldoCartera;
     private EstadoCuentaEnum.Estado estado;
 
-    public UsuarioEntity(long idBiblioteca, String nombreReal, String nombreUsuario, String email, String contrasenha, String pais, LocalDate fechaNacimiento, Double saldoCartera, EstadoCuentaEnum.Estado estado, String avatar, LocalDateTime fechaRegistro) {
+    public UsuarioEntity(Long idBiblioteca, String nombreReal, String nombreUsuario, String email, String contrasenha, String pais, LocalDate fechaNacimiento, Double saldoCartera, EstadoCuentaEnum.Estado estado, String avatar, LocalDateTime fechaRegistro) {
         this.id = idBiblioteca;
         this.nombreReal = nombreReal;
         this.nombreUsuario = nombreUsuario;
@@ -27,7 +27,7 @@ public class UsuarioEntity {
         this.pais = pais;
         this.fechaNacimiento = fechaNacimiento;
         this.saldoCartera = saldoCartera;
-        this.estado = estado;
+        this.estado = EstadoCuentaEnum.Estado.ACTIVA;
         this.avatar = avatar;
         this.fechaRegistro = fechaRegistro;
     }
@@ -52,7 +52,7 @@ public class UsuarioEntity {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

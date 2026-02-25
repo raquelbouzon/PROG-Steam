@@ -6,7 +6,9 @@ public enum ErrorType{
     FORMATO_INVALIDO("El formato es inválido"),
     LONGITUD_INVALIDA("La longitud del campo es inválida"),
     VALOR_DEMASIADO_ALTO("El valor es demasiado alto"),
-    VALOR_DEMASIADO_BAJO("El valor es demasiado bajo");
+    VALOR_DEMASIADO_BAJO("El valor es demasiado bajo"),
+    VALOR_INVALIDO("Opción no disponibñe"),
+    DUPLICADO("ya existe");
 
     private final String mensaje;
     private ErrorType(String mensaje){
