@@ -126,7 +126,7 @@ public class JuegoEntity {
         return estado;
     }
 
-    public void setEstado(EstadoJuegoEnum.Estado estado) {
+    public void setEstado(EstadoJuegoEnum estado) {
         this.estado = estado;
     }
 }
