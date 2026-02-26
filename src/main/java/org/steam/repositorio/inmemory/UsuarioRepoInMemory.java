@@ -40,10 +40,11 @@ public class UsuarioRepoInMemory implements IUsuarioRepo {
     public Optional<UsuarioEntity> actualizar(Long id, UsuarioForm form) {
 
         Optional<UsuarioEntity> usuarioOpt = obtenerPorId(id);
-        UsuarioEntity existente = usuarioOpt.get();
         if (usuarioOpt.isEmpty()) {
             throw new IllegalArgumentException("Usuario no encontrado");
         }
+        UsuarioEntity existente = usuarioOpt.get();
+
 
         UsuarioEntity usuarioActualizado = new UsuarioEntity(id, form.nombreReal(), form.nombreUsuario(), form.email(), form.contrasenha(), form.pais(), form.fechaNacimiento(), existente.getSaldoCartera(), existente.getEstado(), form.avatar(), existente.getFechaRegistro()
         );

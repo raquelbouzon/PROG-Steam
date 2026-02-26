@@ -13,8 +13,8 @@ public class JuegoEntity {
     private String descripcion;
     private String desarrollador;
     private LocalDate fechaLanzamiento;
-    private double precioBase;
-    private int descuentoActual;
+    private Double precioBase;
+    private Integer descuentoActual;
     private String categoria;
     private ClasificacionEdadEnum.ClasificacionEdad clasificacionEdad;
     private String[] idiomas;
@@ -27,11 +27,19 @@ public class JuegoEntity {
         this.desarrollador = desarrollador;
         this.fechaLanzamiento = fechaLanzamiento;
         this.precioBase = precioBase;
-        this.descuentoActual = 0;
         this.categoria = categoria;
         this.clasificacionEdad = clasificacionEdad;
         this.idiomas = idiomas;
-        this.estado = EstadoJuegoEnum.Estado.DISPONIBLE;
+        this.estado = estado;
+
+        this.descuentoActual = descuentoActual;
+        if (this.descuentoActual == null) {
+            this.descuentoActual = 0;
+        }
+        this.estado = estado;
+        if (this.estado == null) {
+            this.estado = EstadoJuegoEnum.Estado.DISPONIBLE;
+        }
     }
 
     public long getId() {

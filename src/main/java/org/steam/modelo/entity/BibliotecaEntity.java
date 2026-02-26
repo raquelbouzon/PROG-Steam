@@ -7,11 +7,11 @@ import java.time.LocalDateTime;
 
 public class BibliotecaEntity {
 
-    private long id;
-    private long usuarioId;
-    private long juegoId;
+    private Long id;
+    private Long usuarioId;
+    private Long juegoId;
     private LocalDate fechaAdquisicion;
-    private double tiempoJuegoTotal;
+    private Double tiempoJuegoTotal;
     private LocalDateTime ultimaFechaJuego;
     private EstadoInstalacionEnum.Estado estadoInstalacion;
 

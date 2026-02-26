@@ -3,6 +3,7 @@ package org.steam.modelo.dto;
 import org.steam.modelo.enums.EstadoInstalacionEnum;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public record BibliotecaDto(
         Long id,
@@ -10,7 +11,7 @@ public record BibliotecaDto(
         Long juegoId,
         LocalDate fechaAdquisicion,
         Double tiempoJuegoTotal,
-        LocalDate ultimaFechaJuego,
+        LocalDateTime ultimaFechaJuego,
         EstadoInstalacionEnum.Estado estadoInstalacion
 ){
 

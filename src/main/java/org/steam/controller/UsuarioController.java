@@ -22,7 +22,7 @@ public class UsuarioController {
 
         List<ErrorDto> errores = form.validar();
 
-        // Validar si el email esta duplicado
+        // Validar si el email está duplicado
         boolean emailExiste = usuarioRepo.obtenerTodos().stream()
                 .anyMatch(u -> u.getEmail().equalsIgnoreCase(form.email()));
         if (emailExiste) {
@@ -36,16 +36,12 @@ public class UsuarioController {
         if (nombreUsuarioExiste) {
             errores.add(new ErrorDto("nombreUsuario", ErrorType.DUPLICADO));
         }
-
-
         if (!errores.isEmpty()) {
             throw new ValidationException(errores);
         }
 
         Optional<UsuarioEntity> nuevoUsuario = usuarioRepo.crear(form);
-
-        return usuarioRepo.crear(form)
-                .orElseThrow(() -> new IllegalStateException("No se pudo crear el usuario"));
+        return nuevoUsuario.orElseThrow(() -> new IllegalStateException("No se pudo crear el usuario"));
 
     }
 }

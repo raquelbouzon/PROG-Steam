@@ -15,8 +15,9 @@ public record  JuegoForm(
         LocalDate fechaLanzamiento,
         Double precioBase,
         Integer descuentoActual,
+        String categoria,
         ClasificacionEdadEnum.ClasificacionEdad clasificacionEdad,
-        String idiomas,
+        String[] idiomas,
         EstadoJuegoEnum.Estado estado
 ) {
 
@@ -83,11 +84,7 @@ public record  JuegoForm(
         }
 
 
-        if (idiomas != null && idiomas.isBlank()) {
-            errores.add(new ErrorDto("idiomas", ErrorType.REQUERIDO));
-        }
-
-        if (idiomas != null && idiomas.length() > 200) {
+        if (idiomas != null && idiomas.length > 200) {
             errores.add(new ErrorDto("idiomas", ErrorType.LONGITUD_INVALIDA));
         }
 

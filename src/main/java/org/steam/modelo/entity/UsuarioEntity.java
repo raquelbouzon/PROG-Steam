@@ -2,6 +2,7 @@ package org.steam.modelo.entity;
 
 import org.steam.modelo.enums.EstadoCuentaEnum;
 
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -15,7 +16,7 @@ public class UsuarioEntity {
     private LocalDate fechaNacimiento;
     private LocalDateTime fechaRegistro;
     private String avatar;
-    private double saldoCartera;
+    private Double saldoCartera;
     private EstadoCuentaEnum.Estado estado;
 
     public UsuarioEntity(Long idBiblioteca, String nombreReal, String nombreUsuario, String email, String contrasenha, String pais, LocalDate fechaNacimiento, Double saldoCartera, EstadoCuentaEnum.Estado estado, String avatar, LocalDateTime fechaRegistro) {
@@ -26,10 +27,17 @@ public class UsuarioEntity {
         this.contrasenha = contrasenha;
         this.pais = pais;
         this.fechaNacimiento = fechaNacimiento;
-        this.saldoCartera = saldoCartera;
-        this.estado = EstadoCuentaEnum.Estado.ACTIVA;
         this.avatar = avatar;
         this.fechaRegistro = fechaRegistro;
+
+        this.saldoCartera = saldoCartera;
+        if (this.saldoCartera == null) {
+            this.saldoCartera = 0.0;
+        }
+        this.estado = estado;
+        if (this.estado == null) {
+            this.estado = EstadoCuentaEnum.Estado.ACTIVA;
+        }
     }
 
     public String getNombreUsuario() {
